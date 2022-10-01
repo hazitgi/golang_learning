@@ -54,15 +54,39 @@ func main() {
 	// Switch statement without default statement
 	// Multiple values in case statement
 
-	value := "five"
+	// value := "five"
 
-	switch value {
-	case "one":
-		fmt.Println("Hai case one")
-	case "two", "three":
-		fmt.Println("case is two , three")
-	case "four", "five", "six":
-		fmt.Println("case four, five, six:")
+	// switch value {
+	// case "one":
+	// 	fmt.Println("Hai case one")
+	// case "two", "three":
+	// 	fmt.Println("case is two , three")
+	// case "four", "five", "six":
+	// 	fmt.Println("case four, five, six:")
+	// }
+
+	// 2. Type Switch
+
+	/*
+		switch optstatement; typeswitchexpression{
+			case typelist 1: Statement..
+			case typelist 2: Statement..
+			...
+			default: Statement..
+		}
+	*/
+
+	var value interface{}
+	switch q := value.(type) {
+	case bool:
+		fmt.Println("value is of boolean type")
+	case float32:
+		fmt.Println("value is of float32 type")
+	case int:
+		fmt.Println("value is of int type")
+	default:
+		fmt.Printf("value is of type : %T", q)
+
 	}
 
 }
