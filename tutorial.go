@@ -32,8 +32,14 @@ func main() {
 	// fmt.Println(joinstr("Geeks", "for", "Geeks"))
 	// fmt.Println(joinstr("G", "E", "E", "k", "S"))
 
-	message := ABC()
-	fmt.Println(message("Habeebee", "welcome"))
+	// message := ABC()
+	// fmt.Println(message("Habeebee", "welcome"))
+
+	// Defer Keyword
+
+	multiply(10, 4)
+	defer multiply(4, 9)
+	show()
 
 }
 
@@ -56,9 +62,19 @@ func main() {
 // 	return strings.Join(elements, "-")
 // }
 
-func ABC() func(i, j string) string {
-	myf := func(i, j string) string {
-		return i + " " + j + " " + "Tirurangadi"
-	}
-	return myf
+// func ABC() func(i, j string) string {
+// 	myf := func(i, j string) string {
+// 		return i + " " + j + " " + "Tirurangadi"
+// 	}
+// 	return myf
+// }
+
+func multiply(num1, num3 int) int {
+	res := num1 * num3
+	fmt.Println("Result : ", res)
+	return 0
+}
+
+func show() {
+	fmt.Println("Mohamed Haseeb K")
 }
