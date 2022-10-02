@@ -24,6 +24,14 @@ func main() {
 	a3 := Address{name: "Hamda"}
 	fmt.Println("Address 3 : ", a3)
 
+	/*
+		Pointers to struct
+	*/
+	emp1 := &Employee{"Anas", "Karumbil", 25, 676306}
+
+	fmt.Println("Frist Name : ", (*&emp1.firstName))
+	fmt.Println("Full Name : ", (*&emp1.firstName)+" ", (*&emp1.lastName))
+	fmt.Println("Age : ", (*emp1).age)
 }
 
 type Address struct {
@@ -31,4 +39,9 @@ type Address struct {
 	city    string
 	state   string
 	Pincode int
+}
+
+type Employee struct {
+	firstName, lastName string
+	age, salary         int
 }
