@@ -25,8 +25,21 @@ func main() {
 	}
 	GFG(value)
 
+	// Blank identifier
+	multiply, _ := mul_div(56, 4)
+
+	fmt.Println("result = ", multiply)
+
+	_, division := mul_div(56, 4)
+
+	fmt.Println("result = ", division)
+
 }
 
 func GFG(i func(p, q string) string) {
 	fmt.Println(i("Mohamed", "Haseeb"))
+}
+
+func mul_div(num1, num2 int) (int, int) {
+	return num1 * num2, num1 / num2
 }
