@@ -39,6 +39,17 @@ func main() {
 
 	/* Example 2 End */
 
+	/* Example of Anonymous Structure Start */
+	Anonymous := struct {
+		name, branch, language string
+		Particles              int
+	}{
+		"Arshad Koolath", "Ramanatukara", "Hindi", 560,
+	}
+
+	fmt.Println(Anonymous)
+	/* Example of Anonymous Structure End */
+
 }
 
 /* 	Nested struct Syntax */
