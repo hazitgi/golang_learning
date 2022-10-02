@@ -20,13 +20,36 @@ func main() {
 
 	res.show()
 
-
 	// Method with Non-Struct Type Receiver
 
 	value1 := data(23)
 	value2 := data(56)
 	res2 := value2.multiply(value1)
 	fmt.Println("Final result ", res2)
+
+	// Methods with Pointer Receiver
+
+	// Syntax
+	/*
+		func (p *Type) method_name(...Type) Type {
+		// Code
+		}
+	*/
+
+	emplData := EmployeeInfo{
+		name:   "Mohamed Haseeb",
+		branch: "Tirurangadi",
+	}
+
+	fmt.Println("Employee name: ", emplData.name)
+	fmt.Println("Branch Name (Before) : ", emplData.branch)
+
+	p := &emplData
+
+	p.changeBranch("Chemmad")
+	println("____________________________")
+	fmt.Println("Employee name: ", emplData.name)
+	fmt.Println("Branch Name (Before) : ", emplData.branch)
 
 }
 
@@ -50,3 +73,12 @@ func (d1 data) multiply(d2 data) data {
 	return d1 * d2
 }
 
+type EmployeeInfo struct {
+	name      string
+	branch    string
+	particles int
+}
+
+func (a *EmployeeInfo) changeBranch(abranch string) {
+	(*a).branch = abranch
+}
