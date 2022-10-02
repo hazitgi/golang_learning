@@ -11,21 +11,21 @@ func main() {
 
 	// Method with struct type receiver
 
-	res := author{
-		name:      "Mohamed Haseeb",
-		branch:    "Tirurangadi",
-		particles: 50,
-		salary:    365894,
-	}
+	// res := author{
+	// 	name:      "Mohamed Haseeb",
+	// 	branch:    "Tirurangadi",
+	// 	particles: 50,
+	// 	salary:    365894,
+	// }
 
-	res.show()
+	// res.show()
 
 	// Method with Non-Struct Type Receiver
 
-	value1 := data(23)
-	value2 := data(56)
-	res2 := value2.multiply(value1)
-	fmt.Println("Final result ", res2)
+	// value1 := data(23)
+	// value2 := data(56)
+	// res2 := value2.multiply(value1)
+	// fmt.Println("Final result ", res2)
 
 	// Methods with Pointer Receiver
 
@@ -36,20 +36,40 @@ func main() {
 		}
 	*/
 
-	emplData := EmployeeInfo{
-		name:   "Mohamed Haseeb",
+	// emplData := EmployeeInfo{
+	// 	name:   "Mohamed Haseeb",
+	// 	branch: "Tirurangadi",
+	// }
+
+	// fmt.Println("Employee name: ", emplData.name)
+	// fmt.Println("Branch Name (Before) : ", emplData.branch)
+
+	// p := &emplData
+
+	// p.changeBranch("Chemmad")
+	// println("____________________________")
+	// fmt.Println("Employee name: ", emplData.name)
+	// fmt.Println("Branch Name (Before) : ", emplData.branch)
+
+	// Method Can Accept both Pointer and Value
+
+	newRes := author{
+		name:   "Faris Poongadan",
 		branch: "Tirurangadi",
 	}
 
-	fmt.Println("Employee name: ", emplData.name)
-	fmt.Println("Branch Name (Before) : ", emplData.branch)
+	fmt.Println("Branch name (before) : ", newRes.branch)
 
-	p := &emplData
+	// Calling the show_1 method
+	// (Pointer methods) with value
 
-	p.changeBranch("Chemmad")
-	println("____________________________")
-	fmt.Println("Employee name: ", emplData.name)
-	fmt.Println("Branch Name (Before) : ", emplData.branch)
+	newRes.show_1("Thalappra")
+	fmt.Println("Branch name (After) : ", newRes.branch)
+
+	// calling the show_2 method
+	// (value method) with a pointer
+	(&newRes).show_2()
+	fmt.Println("Author's name (after) : ", newRes.name)
 
 }
 
@@ -60,25 +80,33 @@ type author struct {
 	salary    int
 }
 
-type data int
+// type data int
 
-func (a author) show() {
-	fmt.Println("Author's Name : ", a.name)
-	fmt.Println("Branch Name : ", a.branch)
-	fmt.Println("Published articles : ", a.particles)
-	fmt.Println("Salary : ", a.salary)
-}
+// func (a author) show() {
+// 	fmt.Println("Author's Name : ", a.name)
+// 	fmt.Println("Branch Name : ", a.branch)
+// 	fmt.Println("Published articles : ", a.particles)
+// 	fmt.Println("Salary : ", a.salary)
+// }
 
-func (d1 data) multiply(d2 data) data {
-	return d1 * d2
-}
+// func (d1 data) multiply(d2 data) data {
+// 	return d1 * d2
+// }
 
-type EmployeeInfo struct {
-	name      string
-	branch    string
-	particles int
-}
+// type EmployeeInfo struct {
+// 	name      string
+// 	branch    string
+// 	particles int
+// }
 
-func (a *EmployeeInfo) changeBranch(abranch string) {
+// func (a *EmployeeInfo) changeBranch(abranch string) {
+// 	(*a).branch = abranch
+// }
+
+func (a *author) show_1(abranch string) {
 	(*a).branch = abranch
+}
+func (a author) show_2() {
+	a.name = "Mohamed Haseeb K"
+	fmt.Println("Author's name (before) : ", a.name)
 }
