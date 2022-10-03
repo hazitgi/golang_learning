@@ -55,6 +55,34 @@ func main() {
 		fmt.Println(arr1 == arr4)
 	*/
 
+	/*
+		How to copy an Array into another array in golang
+	*/
+
+	// creating a copy of an array by value
+	arr5 := arr1
+
+	arr5[2] = 6598
+
+	fmt.Println("Create a copy of an array by value (original Array)", arr1)
+	fmt.Println("Create a copy of an array by value (new Array)", arr5)
+
+	/*  if copy an array by reference that will effect original array.
+	if copy an array by value that won't effect original array
+	*/
+
+	// Creating a copy of an array by reference
+	arr6 := &arr1
+
+	arr6[2] = 3269
+
+	fmt.Println("Create a copy of an array by value (original Array)", arr1)
+	fmt.Println("Create a copy of an array by value (new Array)", arr6)
+
+	/* Pass array in functions Start */
+	fmt.Println(myFun(arr2, 3))
+	/* Pass array in functions End */
+
 }
 
 func sum(array []int) int {
@@ -64,3 +92,16 @@ func sum(array []int) int {
 	}
 	return result
 }
+
+/* Pass array into functions Start */
+func myFun(a [3]int, size int) int {
+	var k, val, r int
+
+	for k = 0; k < size; k++ {
+		val += a[k]
+	}
+	r = val / size
+	return r
+}
+
+/* Pass array into functions End */
