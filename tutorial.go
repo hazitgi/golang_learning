@@ -5,21 +5,21 @@ import "fmt"
 func main() {
 	/* Arrays */
 
-	// numbers := [10]int{4, 5, 6, 8, 9, 8, 9, 45, 6, 4}
+	numbers := [10]int{4, 5, 6, 8, 9, 8, 9, 45, 6, 4}
 
-	// fmt.Println(numbers)
+	fmt.Println(numbers)
 
 	/* Example 2 */
-	// for i := 0; i < 10; i++ {
-	// 	fmt.Println(numbers[i])
-	// }
+	for i := 0; i < 10; i++ {
+		fmt.Println(numbers[i])
+	}
 
-	// var numbers2 [10]int
+	var numbers2 [10]int
 
-	// for i := 0; i < 10; i++ {
-	// 	fmt.Printf("Enter %d element : ", i)
-	// 	fmt.Scanf("%d", &numbers2[i])
-	// }
+	for i := 0; i < 10; i++ {
+		fmt.Printf("Enter %d element : ", i)
+		fmt.Scanf("%d", &numbers2[i])
+	}
 
 	// fmt.Println(sum(numbers2[:]))
 
