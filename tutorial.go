@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
 func main() {
 	/* Slice */
@@ -44,5 +47,31 @@ func main() {
 	fmt.Println(multi_slice)
 
 	/* Multi-Dimensional Slice End */
+	scl1 := []int{50, 6, 8, 9, 4, 88}
+	scl2 := []int{-5, 0, -1, 6, 8, 9, 7}
+
+	fmt.Println("Slices(Before):")
+	fmt.Println("Slice 1: ", scl1)
+	fmt.Println("Slice 2: ", scl2)
+
+	// / Sorting the slice of ints
+	// Using Ints function
+	sort.Ints(scl1)
+	// sort.Ints(scl2)
+
+	// Displaying the result
+	fmt.Println("\nSlices(After):")
+	fmt.Println("Slice 1 : ", scl1)
+	fmt.Println("Slice 2 : ", scl2)
+
+	/* Sorting of sline */
+
+	/* IntsAreSorted verify is slice is sorted or not Start */
+	// func IntsAreSorted(scl []int) bool
+
+	fmt.Println("is scl1 is sorted ? : ", sort.IntsAreSorted(scl1))
+	fmt.Println("is scl2 is sorted ? : ", sort.IntsAreSorted(scl2))
+
+	/* IntsAreSorted verify is slice is sorted or not End */
 
 }
