@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
 	"sort"
 )
@@ -50,17 +51,17 @@ func main() {
 	scl1 := []int{50, 6, 8, 9, 4, 88}
 	scl2 := []int{-5, 0, -1, 6, 8, 9, 7}
 
-	fmt.Println("Slices(Before):")
+	fmt.Println("Slices(Before): sorting ")
 	fmt.Println("Slice 1: ", scl1)
 	fmt.Println("Slice 2: ", scl2)
 
-	// / Sorting the slice of ints
+	// Sorting the slice of ints
 	// Using Ints function
 	sort.Ints(scl1)
-	// sort.Ints(scl2)
+	sort.Ints(scl2)
 
-	// Displaying the result
-	fmt.Println("\nSlices(After):")
+	// // Displaying the result
+	fmt.Println("\nSlices(After): sorting ")
 	fmt.Println("Slice 1 : ", scl1)
 	fmt.Println("Slice 2 : ", scl2)
 
@@ -73,5 +74,66 @@ func main() {
 	fmt.Println("is scl2 is sorted ? : ", sort.IntsAreSorted(scl2))
 
 	/* IntsAreSorted verify is slice is sorted or not End */
+
+	/* How to trim a slice of bytes in Golang Start */
+	slice_1 := []byte{'!', '!', 'G', 'e', 'e', 'k', 's', 'f',
+		'o', 'r', 'G', 'e', 'e', 'k', 's', '#', '#'}
+
+	slice_2 := []byte{'*', '*', 'A', 'p', 'p', 'l', 'e', '^', '^'}
+
+	slice_3 := []byte{'%', 'g', 'e', 'e', 'k', 's', '%'}
+
+	// Displaying slices
+	fmt.Println("Original Slice: before trim")
+	fmt.Printf("Slice 1: %s", slice_1)
+	fmt.Printf("\nSlice 2: %s", slice_2)
+	fmt.Printf("\nSlice 3: %s", slice_3)
+
+	// Trimming specified leading
+	// and trailing Unicodes points
+	// from the given slice of bytes_split
+	// Using Trim function
+	res1 := bytes.Trim(slice_1, "!#")
+	res2 := bytes.Trim(slice_2, "*^")
+	res3 := bytes.Trim(slice_3, "@")
+
+	// Display the results
+	fmt.Printf("New Slice:\n")
+	fmt.Printf("\nSlice 1: %s", res1)
+	fmt.Printf("\nSlice 2: %s", res2)
+	fmt.Printf("\nSlice 3: %s", res3)
+	/* How to trim a slice of bytes in Golang End */
+	fmt.Println("\n==========================================")
+	/* How to split a slice of bytes in Golang Start */
+	// Creating and initializing
+	// the slice of bytes
+	// Using shorthand declaration
+	slice_1_split := []byte{'!', '!', 'G', 'e', 'e', 'k', 's',
+		'f', 'o', 'r', 'G', 'e', 'e', 'k', 's', '#', '#'}
+
+	slice_2_split := []byte{'A', 'p', 'p', 'l', 'e'}
+
+	slice_3_split := []byte{'%', 'g', '%', 'e', '%', 'e',
+		'%', 'k', '%', 's', '%'}
+
+	// Displaying slices
+	fmt.Println("Original Slice:")
+	fmt.Printf("Slice 1: %s", slice_1_split)
+	fmt.Printf("\nSlice 2: %s", slice_2_split)
+	fmt.Printf("\nSlice 3: %s", slice_3_split)
+
+	// Splitting the slice of bytes
+	// Using Split function
+	res1_split := bytes.Split(slice_1_split, []byte("eek"))
+	res2_split := bytes.Split(slice_2_split, []byte(""))
+	res3_split := bytes.Split(slice_3_split, []byte("%"))
+
+	// Display the results
+	fmt.Printf("\n\nAfter splitting:")
+	fmt.Printf("\nSlice 1: %s", res1_split)
+	fmt.Printf("\nSlice 2: %s", res2_split)
+	fmt.Printf("\nSlice 3: %s", res3_split)
+
+	/* How to split a slice of bytes in Golang End */
 
 }
